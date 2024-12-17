@@ -168,7 +168,7 @@ export default function BrowsePage() {
         {displayedScores.map((score) => (
           <Card key={score.id} className="flex flex-col overflow-hidden">
             <Image
-              src="/placeholder.svg?height=200&width=300"
+              src="/place.png?height=200&width=300"
               alt={score.title}
               width={300}
               height={200}

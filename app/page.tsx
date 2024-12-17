@@ -42,7 +42,10 @@ export default function LandingPage() {
                 life.
               </p>
             </motion.div>
-            <motion.div className="space-x-4" variants={fadeIn}>
+            <motion.div
+              className="md:space-x-4 xs:items-center"
+              variants={fadeIn}
+            >
               <Button
                 asChild
                 size="lg"
@@ -54,7 +57,7 @@ export default function LandingPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="text-white border-white hover:bg-white hover:text-[#111622]"
+                className="text-[#d48315] border-white hover:bg-white hover:text-[#111622] mt-3"
               >
                 <Link href="/upload">Upload Your Score</Link>
               </Button>
@@ -83,17 +86,17 @@ export default function LandingPage() {
               {
                 title: "African Symphony No. 1",
                 composer: "Kwame Nkrumah",
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/place.png?height=400&width=600",
               },
               {
                 title: "Savanna Rhythms",
                 composer: "Miriam Makeba",
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/place.png?height=400&width=600",
               },
               {
                 title: "Drums of the Serengeti",
                 composer: "Fela Kuti",
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/place.png?height=400&width=600",
               },
             ].map((score, index) => (
               <motion.div
