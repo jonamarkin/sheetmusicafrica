@@ -19,14 +19,13 @@ const musicScores = [
   },
 ];
 
-export default async function PreviewPage({
-  params,
-}: {
+export default async function PreviewPage(props: {
   params: Promise<{ id: string }>;
 }) {
   // Await the params object before accessing its properties
-  const { id } = await params;
+  const params = await props.params;
 
+  const id = params.id;
   const score = musicScores.find((s) => s.id === parseInt(id));
 
   if (!score) {
