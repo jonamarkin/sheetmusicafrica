@@ -198,7 +198,7 @@ export default function LandingPage() {
                 size="lg"
                 className="bg-[#ee9418] text-white hover:bg-[#d48315]"
               >
-                <Link href="/register">Sign Up Now</Link>
+                <Link href="/auth">Sign Up Now</Link>
               </Button>
             </motion.div>
           </div>

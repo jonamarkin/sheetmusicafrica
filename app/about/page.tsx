@@ -61,7 +61,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p>
-                  Founded in 2023 by a group of passionate African musicians and
+                  Founded in 2024 by a group of passionate African musicians and
                   tech enthusiasts, Sheet Music Africa was born out of a desire
                   to make African sheet music more accessible to the global
                   community. We recognized the need for a platform that not only
