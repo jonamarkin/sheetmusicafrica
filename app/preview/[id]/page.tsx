@@ -1,21 +1,44 @@
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { Button } from "@/components/ui/button"
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 // This would typically come from a database
 const musicScores = [
-  { id: 1, title: "African Symphony No. 1", composer: "Kwame Nkrumah", price: 19.99 },
+  {
+    id: 1,
+    title: "African Symphony No. 1",
+    composer: "Kwame Nkrumah",
+    price: 19.99,
+  },
   { id: 2, title: "Savanna Rhythms", composer: "Miriam Makeba", price: 14.99 },
-  { id: 3, title: "Drums of the Serengeti", composer: "Fela Kuti", price: 24.99 },
-]
+  {
+    id: 3,
+    title: "Drums of the Serengeti",
+    composer: "Fela Kuti",
+    price: 24.99,
+  },
+];
 
-export default function PreviewPage({ params }: { params: { id: string } }) {
-  const score = musicScores.find(s => s.id === parseInt(params.id))
+type PageProps = {
+  params: { id: string };
+};
 
-  if (!score) {
-    notFound()
+export default async function PreviewPage({ params }: PageProps) {
+  // Parse the ID safely
+  const id = parseInt(params.id, 10);
+  if (isNaN(id)) {
+    notFound();
   }
 
+  // Find the score
+  const score = musicScores.find((s) => s.id === id);
+
+  // Handle not found
+  if (!score) {
+    notFound();
+  }
+
+  // Render the page
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">{score.title}</h1>
@@ -29,6 +52,5 @@ export default function PreviewPage({ params }: { params: { id: string } }) {
         <Link href={`/purchase/${score.id}`}>Purchase</Link>
       </Button>
     </div>
-  )
+  );
 }
-
