@@ -19,26 +19,20 @@ const musicScores = [
   },
 ];
 
-type PageProps = {
-  params: { id: string };
-};
+export default async function PreviewPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  // Await the params object before accessing its properties
+  const { id } = await params;
 
-export default async function PreviewPage({ params }: PageProps) {
-  // Parse the ID safely
-  const id = parseInt(params.id, 10);
-  if (isNaN(id)) {
-    notFound();
-  }
+  const score = musicScores.find((s) => s.id === parseInt(id));
 
-  // Find the score
-  const score = musicScores.find((s) => s.id === id);
-
-  // Handle not found
   if (!score) {
     notFound();
   }
 
-  // Render the page
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">{score.title}</h1>
